@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Liron.Saedi\\source\\repos\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
+      "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
       "projectName": "BinarySearchTree",
-      "projectPath": "C:\\Users\\Liron.Saedi\\source\\repos\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
+      "projectPath": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
       "packagesPath": "C:\\Users\\Liron.Saedi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Liron.Saedi\\source\\repos\\BinarySearchTree\\BinarySearchTree\\obj\\",
+      "outputPath": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\BinarySearchTree\\BinarySearchTree\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

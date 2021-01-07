@@ -6,7 +6,8 @@ namespace BinarySearchTree
     {
         static void Main(string[] args)
         {
-            
+            // 5 , 0 , 10
+
         }
     }
 }
