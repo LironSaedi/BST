@@ -48,6 +48,23 @@ namespace BinarySearchTree
 
 
         }
+
+        public int ChildCount(Node<T> node)
+        {
+            int count = 0;
+
+            if (node.Left != null)
+            {
+                count++;
+            }
+
+            if (node.Right != null)
+            {
+                count++;
+            }
+
+            return count;
+        }
         public void Delete(T value)
         {
             Node<T> node = new Node<T>(value);
@@ -64,11 +81,22 @@ namespace BinarySearchTree
                 {
                     if (holder.Right.Value.Equals(value))
                     {
-                        if (holder.Right.Right == null)
+                        
+                        if (ChildCount(holder.Right.Right) == 0)
                         {
-                            holder.Right = null;
+                            if (holder.Right.Left == null)
+                            {
+                                root.Right = root.Right.Left;
+                            }
+                            else
+                            {
+                                root.Right = root.Right.Right;
+                            }
+
                             return;
                         }
+
+                       
                         else
                         {
                             if (!(holder.Right.Right == null))
@@ -81,7 +109,7 @@ namespace BinarySearchTree
                             else
                             {
                                 holder = holder.Left;
-                                while(holder.Right == null)
+                                while (holder.Right == null)
                                 {
                                     holder = holder.Right;
                                 }
