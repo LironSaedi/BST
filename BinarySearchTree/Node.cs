@@ -45,10 +45,26 @@ namespace BinarySearchTree
 
         }
 
+        public int ChildCount()
+        {
+            int count = 0;
+
+            if (Left != null)
+            {
+                count++;
+            }
+
+            if (Right != null)
+            {
+                count++;
+            }
+
+            return count;
+        }
+            
         public bool IsRightChild()
         {
             return (Parent != null && Parent.Right == this);
-           
         }
         public Node<T> Right { get; set; }
         public Node<T> Left { get; set; }

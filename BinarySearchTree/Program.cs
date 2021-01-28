@@ -15,10 +15,12 @@ namespace BinarySearchTree
             tree.Insert(7);
             //tree.Insert(11);
             tree.Delete(10);
-           
-           
-            // TO DO FORNEXT TIME 1/20/21 : FIx the DElete with 1 child. Seems to be deleteing the whole right side. Also test out the delete with 2 children and finsih the left hand side.
+
             ;
+
+           
+           
+         
 
 
 

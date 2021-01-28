@@ -28,6 +28,7 @@ namespace BinarySearchTree
                     if (holder.Right == null)
                     {
                         holder.Right = node;
+                        node.Parent = holder;
                         return;
                     }
                     holder = holder.Right;
@@ -40,6 +41,7 @@ namespace BinarySearchTree
                     if (holder.Left == null)
                     {
                         holder.Left = node;
+                        node.Parent = holder;
                         return;
                     }
                     holder = holder.Left;
@@ -49,23 +51,99 @@ namespace BinarySearchTree
 
         }
 
-        public int ChildCount(Node<T> node)
+        
+        private Node<T> Minimum(Node<T> node)
         {
-            int count = 0;
-
-            if (node.Left != null)
+            while (node.Left != null)
             {
-                count++;
+                node = node.Left;
             }
 
-            if (node.Right != null)
-            {
-                count++;
-            }
-
-            return count;
+            return node;
         }
         public void Delete(T value)
+        {
+
+            Node<T> node;
+            node = Search(value);
+
+            if (node.ChildCount() == 2)
+            {
+                Node<T> holder = Minimum(node.Right);
+                node.Value = holder.Value;
+                node = holder;
+            }
+
+            if (node.ChildCount() == 0)
+            {
+                if (node == root)
+                {
+                    root = null;
+                }
+
+                else if (node.IsLeftChild())
+                {
+                    node.Parent.Left = null;
+                }
+                else if (node.IsRightChild())
+                {
+                    node.Parent.Right = null;
+                }
+            }
+
+            else
+            {
+                Node<T> temp = node.Left;
+                if (node.Left == null)
+                {
+                    temp = node.Right;
+                }
+                
+
+                if (node == root)
+                {
+                    root = temp;
+                }
+                else if (node.IsLeftChild())
+                {
+                    node.Parent.Left = temp;
+                }
+                else if (node.IsRightChild())
+                {
+                    node.Parent.Right = temp;
+                }
+                
+            }
+
+
+        }
+
+
+        public Node<T> Search(T value)
+        {
+            Node<T> holder = root;
+            while (holder != null)
+            {
+                int val = value.CompareTo(holder.Value);
+
+                if (val < 0)
+                {
+                    holder = holder.Left;
+                }
+                else if (val > 0)
+                {
+                    holder = holder.Right;
+                }
+                else if (val == 0)
+                {
+                    return holder;
+                }
+            }
+
+            return null;
+        }
+
+        public void DeleteOld(T value)
         {
             Node<T> node = new Node<T>(value);
             if (root == null)
@@ -81,8 +159,8 @@ namespace BinarySearchTree
                 {
                     if (holder.Right.Value.Equals(value))
                     {
-                        
-                        if (ChildCount(holder.Right.Right) == 0)
+                        var rightchild = holder.Right.Right;
+                        if (rightchild.ChildCount() == 0)
                         {
                             if (holder.Right.Left == null)
                             {
@@ -96,7 +174,7 @@ namespace BinarySearchTree
                             return;
                         }
 
-                       
+
                         else
                         {
                             if (!(holder.Right.Right == null))
