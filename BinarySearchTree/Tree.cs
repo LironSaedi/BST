@@ -7,7 +7,7 @@ namespace BinarySearchTree
     class Tree<T> where T : IComparable<T>
     {
         Node<T> root;
-        bool checker = false;
+       
         public void Insert(T value)
         {
             Node<T> node = new Node<T>(value);
@@ -112,7 +112,8 @@ namespace BinarySearchTree
                 {
                     node.Parent.Right = temp;
                 }
-                
+                temp.Parent = node.Parent;
+
             }
 
 
@@ -142,7 +143,7 @@ namespace BinarySearchTree
 
             return null;
         }
-
+        /*
         public void DeleteOld(T value)
         {
             Node<T> node = new Node<T>(value);
@@ -207,6 +208,7 @@ namespace BinarySearchTree
                 }
             }
         }
+        */
         #region oldcode
         //    if (root == null)
         //    {
