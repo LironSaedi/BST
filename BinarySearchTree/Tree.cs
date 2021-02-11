@@ -7,7 +7,7 @@ namespace BinarySearchTree
     class Tree<T> where T : IComparable<T>
     {
         Node<T> root;
-       
+
         public void Insert(T value)
         {
             Node<T> node = new Node<T>(value);
@@ -51,7 +51,7 @@ namespace BinarySearchTree
 
         }
 
-        
+
         private Node<T> Minimum(Node<T> node)
         {
             while (node.Left != null)
@@ -98,7 +98,7 @@ namespace BinarySearchTree
                 {
                     temp = node.Right;
                 }
-                
+
 
                 if (node == root)
                 {
@@ -143,6 +143,61 @@ namespace BinarySearchTree
 
             return null;
         }
+
+        public List<T> Preorder()
+        {
+            Stack<Node<T>> stack = new Stack<Node<T>>();
+            var curr = root;
+            List<T> item = new List<T>();
+
+            stack.Push(root);
+            while (stack.Count > 0)
+            {
+                curr = stack.Pop();
+                item.Add(curr.Value);
+
+                if (curr.Right != null)
+                {
+                    stack.Push(curr.Right);
+                }
+                if (curr.Left != null)
+                {
+                    stack.Push(curr.Left);
+                }
+
+
+            }
+            return item;
+
+        }
+
+        public List<T> LevelOrder()
+        {
+            Queue<Node<T>> queue = new Queue<Node<T>>();
+            var curr = root;
+            List<T> item = new List<T>();
+
+            queue.Enqueue(root);
+            while (queue.Count > 0)
+            {
+                queue.Dequeue();
+
+                if(curr.Left != null)
+                {
+                    queue.Enqueue(curr.Left);
+                }
+
+                if(curr.Right != null)
+                {
+                    queue.Enqueue(curr.Right);
+                }
+
+            }
+
+            return item;
+
+        }
+
         /*
         public void DeleteOld(T value)
         {
@@ -233,7 +288,7 @@ namespace BinarySearchTree
         //        }
         //        holder = holder.Right;
         //    }
-
+        //stack.Push(root);
         //    else
         //    {
         //        holder.Left = node; //go to the left side of the tree
@@ -242,6 +297,37 @@ namespace BinarySearchTree
         //}
 
         #endregion
-    }
 
+
+        /*
+        Stack<Node<T>> stack = new Stack<Node<T>>();
+        var current = root;
+
+        stack.Push(root);
+
+
+            List<T> items = new List<T>();
+
+            while(stack.Count > 0)
+            {
+                current = stack.Pop();
+                items.Add(current.Value);
+
+                if (current.Right != null)
+                {
+                    stack.Push(current.Right);
+                }
+
+                if (current.Left != null)
+                {
+                    stack.Push(current.Left);
+                }
+
+            }
+
+            return items;
+
+    
+        */
+    }
 }
