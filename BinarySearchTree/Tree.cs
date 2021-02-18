@@ -174,13 +174,17 @@ namespace BinarySearchTree
         public List<T> LevelOrder()
         {
             Queue<Node<T>> queue = new Queue<Node<T>>();
-            var curr = root;
+            Queue<T> node = new Queue<T>();
+
             List<T> item = new List<T>();
 
             queue.Enqueue(root);
-            while (queue.Count > 0)
+            while (queue.Count != 0)
             {
-                queue.Dequeue();
+                var curr = queue.Dequeue();
+               // node.Enqueue(curr.Value);
+                item.Add(curr.Value);
+                 //   queue.Dequeue();
 
                 if(curr.Left != null)
                 {
@@ -194,7 +198,7 @@ namespace BinarySearchTree
 
             }
 
-            return item;
+          return item;
 
         }
 

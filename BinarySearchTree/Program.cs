@@ -13,6 +13,10 @@ namespace BinarySearchTree
             tree.Insert(0);
             tree.Insert(10);
             tree.Insert(7);
+
+
+         //   tree.LevelOrder();
+        //    tree.LevelOrder();
             //tree.Delete(10);
             //tree.Insert(8);
             //tree.Insert(9);
